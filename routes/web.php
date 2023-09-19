@@ -28,9 +28,8 @@ Route::middleware([
 });
 
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
 
 
-Route::view('posts/create', 'posts.create');
+
+
+Route::get('items', [\App\Http\Controllers\ItemController::class, 'index'])->name('items');

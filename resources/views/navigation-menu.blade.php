@@ -18,11 +18,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
-                        {{ __('Products') }}
+                    <x-nav-link href="{{ route('items') }}" :active="request()->routeIs('items')">
+                        {{ __('Items') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -153,9 +155,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
-                {{ __('Products') }}
-            </x-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
