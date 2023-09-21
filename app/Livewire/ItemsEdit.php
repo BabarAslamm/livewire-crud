@@ -30,8 +30,13 @@ class ItemsEdit extends Component
     {
         $this->itemId = $item->id;
         $this->name = $item->name;
-        $this->color = $item->color;
-        $this->in_stock = $item->in_stock;
+        if($item->color){
+            $this->color = $item->color;
+        }
+        if($item->in_stock){
+            $this->in_stock = $item->in_stock;
+        }
+
         $this->description = $item->description;
         $this->category_id = $item->category_id;
         $this->categories = Category::pluck('name', 'id');

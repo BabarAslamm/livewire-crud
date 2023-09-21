@@ -15,6 +15,7 @@ class Item extends Model
         'category_id',
         'color',
         'in_stock',
+        'photo', 
     ];
 
     const COLOR_LIST = [
