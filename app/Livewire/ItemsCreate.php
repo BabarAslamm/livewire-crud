@@ -9,6 +9,8 @@ use App\Models\Item;
 class ItemsCreate extends Component
 {
     public string $name = '';
+    public string $color = '';
+    public bool $in_stock = false;
     public string $description = '';
     public int $category_id;
     public $categories;
@@ -18,6 +20,7 @@ class ItemsCreate extends Component
         'name'=>'required',
         'description'=>'required',
         'category_id' => 'required',
+        'color' => 'required',
 
     ];
 
@@ -36,6 +39,8 @@ class ItemsCreate extends Component
 
         $item = new Item();
         $item->name = $this->name;
+        $item->color = $this->color;
+        $item->in_stock = $this->in_stock;
         $item->description = $this->description;
         $item->category_id = $this->category_id;
         $item->save();

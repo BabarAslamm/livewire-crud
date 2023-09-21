@@ -10,7 +10,17 @@ class Item extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description'
+        'name',
+        'description',
+        'category_id',
+        'color',
+        'in_stock',
+    ];
+
+    const COLOR_LIST = [
+        'red' => 'Red',
+        'green' => 'Green',
+        'blue' => 'Blue',
     ];
 
     public function category()

@@ -11,6 +11,8 @@ class ItemsEdit extends Component
 
     public int $itemId;
     public string $name = '';
+    public string $color = '';
+    public bool $in_stock = false;
     public string $description = '';
     public int $category_id;
     public $categories;
@@ -18,6 +20,7 @@ class ItemsEdit extends Component
 
     protected $rules = [
         'name'=>'required',
+        'color' => 'required',
         'description'=>'required',
         'category_id' => 'required',
 
@@ -27,6 +30,8 @@ class ItemsEdit extends Component
     {
         $this->itemId = $item->id;
         $this->name = $item->name;
+        $this->color = $item->color;
+        $this->in_stock = $item->in_stock;
         $this->description = $item->description;
         $this->category_id = $item->category_id;
         $this->categories = Category::pluck('name', 'id');
@@ -37,8 +42,14 @@ class ItemsEdit extends Component
     {
         $this->validate();
 
+
+
+
         $item = Item::where('id', $this->itemId)->first();
         $item->name = $this->name;
+        $item->color = $this->color;
+        $item->in_stock = $this->in_stock;
+        $this->in_stock = $item->in_stock;
         $item->description = $this->description;
         $item->category_id = $this->category_id;
         $item->save();
