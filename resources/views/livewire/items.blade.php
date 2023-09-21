@@ -1,5 +1,12 @@
 <div>
+    <div class="mt-4 mr-3 flex justify-end">
+        <a wire:navigate href="{{ route('items.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+            Add new product
+        </a>
+    </div>
+
     <center>
+
 
         <div class="space-x-8 mt-4">
             <input wire:model.live="searchQuery" type="search" id="search" placeholder="Search...">
@@ -7,7 +14,7 @@
             <select wire:model.live="searchCategory" name="category">
                 <option value="0">-- CHOOSE CATEGORY --</option>
                 @foreach($categories as $id => $category)
-                    <option value="{{ $category->id }}">{{ $category->name }} - {{ $id }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -53,7 +60,7 @@
                                 {{ $item->description }}
                             </td>
                             <td class="pr-4">
-                                <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                                <a href="{{ route('items.edit', $item) }}" class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                                     Edit
                                 </a>
                                 <a

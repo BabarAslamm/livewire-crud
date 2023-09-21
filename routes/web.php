@@ -33,3 +33,5 @@ Route::middleware([
 
 
 Route::get('items', [\App\Http\Controllers\ItemController::class, 'index'])->name('items');
+Route::get('items/create', \App\Livewire\ItemsCreate::class)->name('items.create');
+Route::get('items/{item}/edit', \App\Livewire\ItemsEdit::class)->name('items.edit');
